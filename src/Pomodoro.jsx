@@ -28,7 +28,6 @@ function Pomodoro() {
 
   // On Play/Pause
   function PlayPause() {
-    /*
     // toggle timer
     setIsTimerRunning((prevState) => !prevState);
     if (focusCount === focusDuration * 60 && isTimerRunning === false) {
@@ -45,12 +44,17 @@ function Pomodoro() {
       enableStopButton();
       disableTimerBtns();
     }
-	*/
   }
+
+  // ON PLAY - runs every second
+  const onPlay = () => {
+    runFullSession();
+    if (focusCount === 0 && breakCount === breakDuration * 60) handleAudio();
+    if (breakCount === 0) handleAudio();
+  };
 
   // ON STOP
   const onStop = () => {
-    /*
     console.log("Stop");
     setIsTimerRunning(false);
     setIsFocus(true);
@@ -65,46 +69,102 @@ function Pomodoro() {
     const progressBar = document.querySelector(".progress");
     progressBar.classList.add("d-none");
     progressBar.classList.remove("flex");
-		*/
   };
+
+  // Session Handler
+  function runFullSession() {
+    if (focusCount > 0) {
+      setFocusCount((prevCount) => prevCount - 1);
+    } else {
+      setIsFocus(false);
+      if (breakCount > 0) {
+        setBreakCount((prevCount) => prevCount - 1);
+      } else {
+        console.log("Restarting Session");
+        setIsFocus(true);
+        setFocusCount(focusDuration * 60);
+        setBreakCount(breakDuration * 60);
+      }
+    }
+    // set progress bar values
+    if (isFocus) {
+      const timeElapsedA = focusDuration * 60 - focusCount;
+      let percentA = (timeElapsedA / (focusDuration * 60)) * 100;
+      const bar = document.querySelector(".progress-bar");
+      bar.style.width = `${percentA}%`;
+      bar.setAttribute("aria-valuenow", percentA.toFixed(2));
+    } else {
+      const timeElapsedB = breakDuration * 60 - breakCount;
+      let percentB = (timeElapsedB / (breakDuration * 60)) * 100;
+      const bar = document.querySelector(".progress-bar");
+      bar.style.width = `${percentB}%`;
+      bar.setAttribute("aria-valuenow", percentB.toFixed(2));
+    }
+  }
+
+  // Helpers
+  const audioElement = document.getElementsByClassName("audio")[0];
+
+  function enableStopButton() {
+    const stopBtn = document.querySelector("#stopBtn");
+    stopBtn.classList.remove("disabled");
+  }
+
+  function disableStopButton() {
+    const stopBtn = document.querySelector("#stopBtn");
+    stopBtn.classList.add("disabled");
+    stopBtn.getAttribute("disabled", true);
+  }
+
+  function enableTimerButtons() {
+    const timerBtns = document.querySelectorAll("#timerButton");
+    for (let btn of timerBtns) {
+      btn.removeAttribute("disabled");
+    }
+  }
+
+  function disableTimerBtns() {
+    const timerBtns = document.querySelectorAll("#timerButton");
+    for (let btn of timerBtns) {
+      btn.setAttribute("disabled", true);
+    }
+  }
+
+  function handleAudio() {
+    audioElement.play();
+  }
+
+  // Handler
+  useEffect(() => {
+    if (!isTimerRunning) {
+      setFocusCount(focusDuration * 60);
+      setBreakCount(breakDuration * 60);
+    }
+  }, [focusDuration, breakDuration]);
 
   // RENDER
   return (
     <div className="container">
       <div className="pomodoro">
         <div className="row">
-          <div className="col">
-            <div className="input-group input-group-lg mb-2">
-              {
-                <Timer
-                  title="Focus Duration"
-                  upperLimit={60}
-                  lowerLimit={5}
-                  changeInterval={5}
-                  value={focusDuration}
-                  onChange={setFocusDuration}
-                  disabled={isTimerRunning}
-                />
-              }
-            </div>
-          </div>
-          <div className="col">
-            <div className="float-right">
-              <div className="input-group input-group-lg mb-2">
-                {
-                  <Timer
-                    title="Break Duration"
-                    changeInterval={1}
-                    value={breakDuration}
-                    onChange={setBreakDuration}
-                    disabled={isTimerRunning}
-                    upperLimit={15}
-                    lowerLimit={1}
-                  />
-                }
-              </div>
-            </div>
-          </div>
+          <Timer
+            title="Focus Duration"
+            upperLimit={60}
+            lowerLimit={5}
+            changeInterval={5}
+            value={focusDuration}
+            onChange={setFocusDuration}
+            disabled={isTimerRunning}
+          />
+          <Timer
+            title="Break Duration"
+            upperLimit={15}
+            lowerLimit={1}
+            changeInterval={1}
+            value={breakDuration}
+            onChange={setBreakDuration}
+            disabled={isTimerRunning}
+          />
         </div>
         <div className="row">
           <div className="col">

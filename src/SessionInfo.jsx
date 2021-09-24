@@ -29,7 +29,7 @@ function SessionInfo({
   }
 
   return (
-    <div>
+    <div className="row mb-2 d-none" id="sessionInfo">
       {/* TODO: This area should show only when a focus or break session is running or pauses */}
       <div className="col">
         {/* TODO: Update message below to include current session (Focusing or On Break) and total duration */}

@@ -2,9 +2,11 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="jumbotron">
-      <h1>Pomodoro Timer</h1>
-      <p>take control of your time.</p>
+    <div className="p-5 mb-3 mb-md-4 bg-light rounded-3">
+      <div className="container-fluid py-5">
+        <h1 className="display-5 fw-bold">Pomodoro Timer</h1>
+        <p className="fs-4">take control of your time.</p>
+      </div>
     </div>
   );
 }

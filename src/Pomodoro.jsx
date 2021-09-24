@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import classNames from "./utils/class-names";
 import useInterval from "./utils/useInterval";
 import Timer from "./Timer";
-
+import SessionInfo from "./SessionInfo";
 function Pomodoro() {
   // STATES
   //set focus
@@ -204,7 +204,6 @@ function Pomodoro() {
         <div>
           {/* TODO: This area should show only when a focus or break session is running or pauses */}
           <div className="row mb-2 d-none" id="sessionInfo">
-            {/*
             <SessionInfo
               isFocus={isFocus}
               focusDuration={focusDuration}
@@ -215,7 +214,6 @@ function Pomodoro() {
               barWidth={barWidth}
               ariaValue={ariaValue}
             />
-						*/}
           </div>
         </div>
       </div>

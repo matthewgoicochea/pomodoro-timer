@@ -3,9 +3,12 @@ import { minutesToDuration } from "./utils/duration";
 
 function FocusDuration({ state, onChange, focusDuration }) {
   return (
-    <div className="input-group input-group-lg mb-2">
+    <div className="input-group input-group-lg mb-2 justify-content-center">
       {/* display the current focus session duration */}
-      <span className="input-group-text" data-testid="duration-focus">
+      <span
+        className="input-group-text bg-grey btn-outline-dark rounded-3"
+        data-testid="duration-focus"
+      >
         {`Focus Duration: ${minutesToDuration(focusDuration)}`}
       </span>
 
@@ -24,7 +27,7 @@ function FocusDuration({ state, onChange, focusDuration }) {
             )
           }
         >
-          <span className="oi oi-minus" />
+          <span className="oi oi-minus my-2" />
         </button>
 
         <button
@@ -40,7 +43,7 @@ function FocusDuration({ state, onChange, focusDuration }) {
             )
           }
         >
-          <span className="oi oi-plus" />
+          <span className="oi oi-plus my-2" />
         </button>
       </div>
     </div>

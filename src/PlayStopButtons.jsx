@@ -89,7 +89,7 @@ function PlayStopButtons({
           {/* PLAY/PAUSE BTN: starts/pauses session */}
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary shadow-none"
             data-testid="play-pause"
             title="Start or pause timer"
             onClick={playPause}
@@ -105,7 +105,7 @@ function PlayStopButtons({
           {/* STOP BTN: stops session and disables when no active session */}
           <button
             type="button"
-            className="btn btn-secondary disabled"
+            className="btn btn-secondary shadow-none disabled"
             id="stopBtn"
             title="Stop the session"
             onClick={onStop}

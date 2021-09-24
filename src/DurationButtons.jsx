@@ -9,7 +9,7 @@ function DurationButtons({
   setBreakDuration,
 }) {
   return (
-    <div className="row">
+    <div className="row mb-4">
       <div className="col">
         <FocusDuration
           state={state}

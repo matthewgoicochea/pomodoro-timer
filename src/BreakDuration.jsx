@@ -3,9 +3,12 @@ import { minutesToDuration } from "./utils/duration";
 
 function BreakDuration({ state, onChange, breakDuration }) {
   return (
-    <div className="input-group input-group-lg mb-2">
+    <div className="input-group input-group-lg mb-2 justify-content-center">
       {/* display the current break session duration */}
-      <span className="input-group-text" data-testid="duration-focus">
+      <span
+        className="input-group-text bg-grey btn-outline-dark rounded-3"
+        data-testid="duration-focus"
+      >
         {`Break Duration: ${minutesToDuration(breakDuration)}`}
       </span>
 
@@ -13,7 +16,7 @@ function BreakDuration({ state, onChange, breakDuration }) {
       <div className="input-group-append align-self-center">
         <button
           type="button"
-          className="btn btn-outline-danger text-danger"
+          className="btn btn-outline-danger text-danger shadow-none"
           id="timerButton"
           data-testid="decrease-break"
           onClick={() =>
@@ -24,12 +27,12 @@ function BreakDuration({ state, onChange, breakDuration }) {
             )
           }
         >
-          <span className="oi oi-minus" />
+          <span className="oi oi-minus my-2" />
         </button>
 
         <button
           type="button"
-          className="btn btn-outline-success text-success"
+          className="btn btn-outline-success text-success shadow-none"
           id="timerButton"
           data-testid="increase-break"
           onClick={() =>
@@ -40,7 +43,7 @@ function BreakDuration({ state, onChange, breakDuration }) {
             )
           }
         >
-          <span className="oi oi-plus" />
+          <span className="oi oi-plus my-2" />
         </button>
       </div>
     </div>

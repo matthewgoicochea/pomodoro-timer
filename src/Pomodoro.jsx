@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useInterval from "./utils/useInterval";
-import Timer from "./Timer";
+import DurationButtons from "./DurationButtons";
 import SessionInfo from "./SessionInfo";
 import PlayStopButtons from "./PlayStopButtons";
 function Pomodoro() {
@@ -12,9 +12,6 @@ function Pomodoro() {
   //set break
   const [breakDuration, setBreakDuration] = useState(5);
   const [breakCount, setBreakCount] = useState(breakDuration * 60);
-  //set progress bar
-  let barWidth = 0;
-  let ariaValue = 0;
 
   // TIMER
   const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -25,6 +22,21 @@ function Pomodoro() {
     },
     isTimerRunning ? 1000 : null
   );
+  // MAIN STATE
+  const [state, setState] = useState({
+    disabled: isTimerRunning,
+    focusDuration: 20,
+    focusUpperLimit: 30,
+    focusLowerLimit: 20,
+    focusChangeInterval: 1,
+    breakDuration: 5,
+    breakChangeInterval: 1,
+    breakUpperLimit: 10,
+    breakLowerLimit: 1,
+  });
+  //set progress bar
+  let barWidth = 0;
+  let ariaValue = 0;
 
   // ON PLAY - runs every second
   const onPlay = () => {
@@ -83,28 +95,13 @@ function Pomodoro() {
   return (
     <div className="container">
       <div className="pomodoro">
-        <div className="row">
-          {/* FOCUS TIMER */}
-          <Timer
-            title="Focus Duration"
-            upperLimit={60}
-            lowerLimit={1}
-            changeInterval={1}
-            value={focusDuration}
-            onChange={setFocusDuration}
-            disabled={isTimerRunning}
-          />
-          {/* BREAK TIMER */}
-          <Timer
-            title="Break Duration"
-            upperLimit={15}
-            lowerLimit={1}
-            changeInterval={1}
-            value={breakDuration}
-            onChange={setBreakDuration}
-            disabled={isTimerRunning}
-          />
-        </div>
+        <DurationButtons
+          state={state}
+          focusDuration={focusDuration}
+          breakDuration={breakDuration}
+          setFocusDuration={setFocusDuration}
+          setBreakDuration={setBreakDuration}
+        />
         <PlayStopButtons
           isTimerRunning={isTimerRunning}
           setIsTimerRunning={setIsTimerRunning}

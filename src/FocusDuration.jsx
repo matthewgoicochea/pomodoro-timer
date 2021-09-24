@@ -5,12 +5,12 @@ function FocusDuration({ state, onChange, focusDuration }) {
   return (
     <div className="input-group input-group-lg mb-2 justify-content-center">
       {/* display the current focus session duration */}
-      <span
-        className="input-group-text bg-grey btn-outline-dark rounded-3"
+      <div
+        className="input-group-text bg-grey btn-outline-dark rounded-3 mx-2 my-2"
         data-testid="duration-focus"
       >
         {`Focus Duration: ${minutesToDuration(focusDuration)}`}
-      </span>
+      </div>
 
       {/* decrease focus duration and disable during a focus or break session */}
       <div className="input-group-append align-self-center">

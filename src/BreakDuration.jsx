@@ -5,12 +5,12 @@ function BreakDuration({ state, onChange, breakDuration }) {
   return (
     <div className="input-group input-group-lg mb-2 justify-content-center">
       {/* display the current break session duration */}
-      <span
-        className="input-group-text bg-grey btn-outline-dark rounded-3"
+      <div
+        className="input-group-text bg-grey btn-outline-dark rounded-3 mx-2 my-2"
         data-testid="duration-focus"
       >
         {`Break Duration: ${minutesToDuration(breakDuration)}`}
-      </span>
+      </div>
 
       {/* increase focus duration and disable during a focus or break session */}
       <div className="input-group-append align-self-center">

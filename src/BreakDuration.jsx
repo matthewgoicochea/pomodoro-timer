@@ -10,7 +10,7 @@ function BreakDuration({ state, onChange, breakDuration }) {
       </span>
 
       {/* increase focus duration and disable during a focus or break session */}
-      <div className="input-group-append">
+      <div className="input-group-append align-self-center">
         <button
           type="button"
           className="btn btn-secondary"

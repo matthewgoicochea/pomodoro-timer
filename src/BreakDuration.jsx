@@ -13,7 +13,7 @@ function BreakDuration({ state, onChange, breakDuration }) {
       <div className="input-group-append align-self-center">
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-outline-danger text-danger"
           id="timerButton"
           data-testid="decrease-break"
           onClick={() =>
@@ -29,7 +29,7 @@ function BreakDuration({ state, onChange, breakDuration }) {
 
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-outline-success text-success"
           id="timerButton"
           data-testid="increase-break"
           onClick={() =>

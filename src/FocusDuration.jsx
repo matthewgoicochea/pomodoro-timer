@@ -13,7 +13,7 @@ function FocusDuration({ state, onChange, focusDuration }) {
       <div className="input-group-append align-self-center">
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-outline-danger text-danger shadow-none"
           id="timerButton"
           data-testid="decrease-focus"
           onClick={() =>
@@ -29,7 +29,7 @@ function FocusDuration({ state, onChange, focusDuration }) {
 
         <button
           type="button"
-          className="btn btn-secondary"
+          className="btn btn-outline-success text-success shadow-none"
           id="timerButton"
           data-testid="increase-focus"
           onClick={() =>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classNames from "./utils/class-names";
 import useInterval from "./utils/useInterval";
+import Timer from "./Timer";
 
 function Pomodoro() {
   // STATES
@@ -74,29 +75,33 @@ function Pomodoro() {
         <div className="row">
           <div className="col">
             <div className="input-group input-group-lg mb-2">
-              {/* <Timer
-                title="Focus Duration"
-                upperLimit={60}
-                lowerLimit={5}
-                changeInterval={5}
-                value={focusDuration}
-                onChange={setFocusDuration}
-                disabled={isTimerRunning}
-              />*/}
+              {
+                <Timer
+                  title="Focus Duration"
+                  upperLimit={60}
+                  lowerLimit={5}
+                  changeInterval={5}
+                  value={focusDuration}
+                  onChange={setFocusDuration}
+                  disabled={isTimerRunning}
+                />
+              }
             </div>
           </div>
           <div className="col">
             <div className="float-right">
               <div className="input-group input-group-lg mb-2">
-                {/*<Timer
-                  title="Break Duration"
-                  changeInterval={1}
-                  value={breakDuration}
-                  onChange={setBreakDuration}
-                  disabled={isTimerRunning}
-                  upperLimit={15}
-                  lowerLimit={1}
-								/>*/}
+                {
+                  <Timer
+                    title="Break Duration"
+                    changeInterval={1}
+                    value={breakDuration}
+                    onChange={setBreakDuration}
+                    disabled={isTimerRunning}
+                    upperLimit={15}
+                    lowerLimit={1}
+                  />
+                }
               </div>
             </div>
           </div>

@@ -10,8 +10,8 @@ function ProgressBar({ barWidth, ariaValue }) {
             role="progressbar"
             aria-valuemin="0"
             aria-valuemax="100"
-            aria-valuenow={ariaValue} // TODO: Increase aria-valuenow as elapsed time increases
-            style={{ width: `${barWidth}%` }} // TODO: Increase width % as elapsed time increases
+            aria-valuenow={ariaValue} // Increase aria-valuenow as elapsed time increases
+            style={{ width: `${barWidth}%` }} // Increase width % as elapsed time increases
           />
         </div>
       </div>

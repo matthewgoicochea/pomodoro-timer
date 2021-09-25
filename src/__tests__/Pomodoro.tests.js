@@ -1,5 +1,5 @@
 import React from "react";
-import Pomodoro from "../pomodoro/Pomodoro";
+import Pomodoro from "../Pomodoro";
 import { act, render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
@@ -243,7 +243,7 @@ describe("Pomodoro Timer", () => {
         "On Break for 01:00 minutes"
       );
     });
-    test('starts a new focus session after break session expires', () => {
+    test("starts a new focus session after break session expires", () => {
       const { getByTestId } = render(<Pomodoro />);
 
       // Set the times to the minimums

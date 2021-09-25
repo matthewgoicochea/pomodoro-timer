@@ -4,34 +4,31 @@ import DurationButtons from "./DurationButtons";
 import SessionInfo from "./SessionInfo";
 import PlayStopButtons from "./PlayStopButtons";
 function Pomodoro() {
-  // STATES
-  //set focus
-  const [focusDuration, setFocusDuration] = useState(25);
+  const [focusDuration, setFocusDuration] = useState(30);
   const [focusCount, setFocusCount] = useState(focusDuration * 60);
   const [isFocus, setIsFocus] = useState(true);
-  //set break
-  const [breakDuration, setBreakDuration] = useState(5);
+  const [breakDuration, setBreakDuration] = useState(10);
   const [breakCount, setBreakCount] = useState(breakDuration * 60);
 
   // TIMER
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   useInterval(
     () => {
-      // ToDo: Implement what should happen when the timer is running
+      // runs while timer is running
       onPlay();
     },
     isTimerRunning ? 1000 : null
   );
-  // MAIN STATE
+
   const [state, setState] = useState({
     disabled: isTimerRunning,
-    focusDuration: 20,
-    focusUpperLimit: 30,
-    focusLowerLimit: 20,
-    focusChangeInterval: 1,
-    breakDuration: 5,
+    focusDuration: 30,
+    focusUpperLimit: 60,
+    focusLowerLimit: 10,
+    focusChangeInterval: 5,
+    breakDuration: 10,
     breakChangeInterval: 1,
-    breakUpperLimit: 10,
+    breakUpperLimit: 30,
     breakLowerLimit: 1,
   });
   //set progress bar

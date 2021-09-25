@@ -10,7 +10,7 @@ Pomodoro Timer is an app for users wishing to take control of their time while s
 
 ## Links
 
-- [Live Demo](https://pomodoro-timer-htoxfrxxc-matthewgoicochea.vercel.app/)
+- [Live Demo](https://pomodoro-timer-lilac.vercel.app/)
 
 ## Technology
 

@@ -30,9 +30,9 @@ function SessionInfo({
 
   return (
     <div className="row mb-2 d-none" id="sessionInfo">
-      {/* TODO: This area should show only when a focus or break session is running or pauses */}
+      {/* Shows only when a focus or break session is running/paused */}
       <div className="col">
-        {/* TODO: Update message below to include current session (Focusing or On Break) and total duration */}
+        {/* Update title to show current session and total duration */}
         <h2 data-testid="session-title">
           <SessionTitle
             isFocus={isFocus}
@@ -40,7 +40,7 @@ function SessionInfo({
             breakDuration={breakDuration}
           />
         </h2>
-        {/* TODO: Update message below to include time remaining in the current session */}
+        {/* Update message to show time remaining in current session */}
         <p className="lead" data-testid="session-sub-title">
           <TimeRemaining
             isFocus={isFocus}

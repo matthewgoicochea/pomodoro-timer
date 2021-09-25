@@ -4,7 +4,7 @@ import { minutesToDuration } from "./utils/duration";
 function BreakDuration({ state, onChange, breakDuration }) {
   return (
     <div className="input-group input-group-lg mb-2 justify-content-center">
-      {/* display the current break session duration */}
+      {/* display the current break duration */}
       <div
         className="input-group-text bg-grey btn-outline-dark rounded-3 mx-2 my-2"
         data-testid="duration-focus"

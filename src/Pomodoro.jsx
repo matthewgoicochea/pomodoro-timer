@@ -86,7 +86,7 @@ function Pomodoro() {
       setFocusCount(focusDuration * 60);
       setBreakCount(breakDuration * 60);
     }
-  }, [focusDuration, breakDuration]);
+  }, [focusDuration, breakDuration, isTimerRunning]);
 
   // RENDER
   return (
@@ -94,6 +94,7 @@ function Pomodoro() {
       <div className="pomodoro">
         <DurationButtons
           state={state}
+          setState={setState}
           focusDuration={focusDuration}
           breakDuration={breakDuration}
           setFocusDuration={setFocusDuration}

@@ -2,7 +2,6 @@ import React from "react";
 import classNames from "./utils/class-names";
 
 function PlayStopButtons({
-  playPause,
   isTimerRunning,
   setIsTimerRunning,
   setIsFocus,

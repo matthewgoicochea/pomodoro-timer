@@ -2,7 +2,7 @@ import React from "react";
 
 function ProgressBar({ barWidth, ariaValue }) {
   return (
-    <div className="row mb-2">
+    <div className="row m-0 p-0">
       <div className="col">
         <div className="progress d-none">
           <div
